@@ -10,4 +10,5 @@ export interface IProduct { // Product Recrod Type
     stock: number;
     thumbnail: string;
     title: string;
+    quantity: number;
 };

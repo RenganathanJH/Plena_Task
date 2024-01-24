@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { FlashList } from '@shopify/flash-list'
 import { serviceCall } from '../service';
 import ProductCard from '../components/Card/ProductCard';
 import { IProduct } from '../utills/interface';
 import { colors } from '../utills/colors';
+import { validateArray } from '../utills/helper';
+import CheckoutBar from '../components/Card/CheckoutBar';
 
 const Home = () => {
   const [productList, setProductList] = useState([]);
@@ -17,7 +19,8 @@ const Home = () => {
     const url = "products";
     try {
       const productList = await serviceCall("get", url);
-      setProductList(productList?.products);
+      const updatedData = validateArray(productList?.products) && productList?.products?.map((product: IProduct) => ({ ...product, quantity: 0}));
+      setProductList(updatedData);
     } catch (error: any) {
       console.log("Error From Products List", error?.response?.data?.message);
     }
@@ -36,7 +39,9 @@ const Home = () => {
         estimatedItemSize={1000}
         numColumns={2}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 120 }}
       />
+      <CheckoutBar />
     </View>
   )
 }
@@ -46,10 +51,23 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE,
     flexGrow: 1, flexDirection: 'row'
+  },
+  footerContainer: {
+    backgroundColor: colors.WHITE,
+    height: 50,
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
+    paddingTop: 8
+  },
+  totalPriceText: {
+    fontSize: 14,
+    color: colors.GERY_SCALE_BLACK_02,
+    fontWeight: "bold",
   }
 })
