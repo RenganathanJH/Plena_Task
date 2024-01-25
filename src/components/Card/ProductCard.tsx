@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingTop: 13,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginLeft: 10
   },
   favouriteIconContainer: {
     position: "absolute",

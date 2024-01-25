@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.WHITE,
     paddingTop: 45,
+    flexGrow: 1,
   },
   iconAndTitleContainer: {
     flexDirection: "row",
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     color: colors.GREY_SCALE_BLACK
   },
   cartItemContainer: {
-    paddingHorizontal: 24,
+    paddingHorizontal: 30,
     paddingTop: 30,
     paddingBottom: 150
   },
@@ -119,8 +120,9 @@ const styles = StyleSheet.create({
     marginLeft: 12
   },
   cartStyle: {
-    position: "relative",
+    position: "absolute",
     top: 0,
-    zIndex: 0
+    zIndex: 0,
+    right: -14,
   },
 })

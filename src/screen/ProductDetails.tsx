@@ -130,7 +130,7 @@ const ProductDetails = () => {
       {/* Button Container */}
       <View style={styles.buttonContainer}>
         {matchingProduct && matchingProduct?.id === productData?.id ? (
-          <CartButton item={productData} matchingProduct={matchingProduct} cartStyle={{ left: 16, bottom: 4 }} />
+          <CartButton item={productData} matchingProduct={matchingProduct} cartStyle={{ position: "relative", top: 0, bottom: 0 }} />
         ) : (
           <Pressable style={styles.addCartContainer} onPress={() => onPressAddCart(productData)}>
             <Text style={styles.addCartLabelText}>{string.productDetail.addToCartLabel}</Text>
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: colors.PRIMARY_LIGHT_BLUE,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   addCartLabelText: {
     fontFamily: fonts.manrope_regular,

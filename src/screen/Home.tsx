@@ -51,11 +51,11 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.WHITE,
-    flexGrow: 1, flexDirection: 'row'
+    flexGrow: 1, 
+    flexDirection: 'row'
   },
   footerContainer: {
     backgroundColor: colors.WHITE,
