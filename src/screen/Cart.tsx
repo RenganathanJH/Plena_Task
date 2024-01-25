@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontFamily: fonts.manrope_regular,
     fontSize: 16,
-    fontWeight: "400"
+    fontWeight: "400",
+    color: colors.GREY_SCALE_BLACK
   },
   cartItemContainer: {
     paddingHorizontal: 24,
